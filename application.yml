@@ -2,19 +2,19 @@ server:
   port: 2333
   address: 0.0.0.0
   http2:
-    enabled: true # Whether to enable HTTP/2 support
+    enabled: false # Whether to enable HTTP/2 support
 plugins:
 #  name: # Name of the plugin
 #    some_key: some_value # Some key-value pair for the plugin
 #    another_key: another_value
 lavalink:
   plugins:
-#    - dependency: "com.github.example:example-plugin:1.0.0" # required, the coordinates of your plugin
-#      repository: "https://maven.example.com/releases" # optional, defaults to the Lavalink releases repository by default
-#      snapshot: false # optional, defaults to false, used to tell Lavalink to use the snapshot repository instead of the release repository
-#  pluginsDir: "./plugins" # optional, defaults to "./plugins"
-#  defaultPluginRepository: "https://maven.lavalink.dev/releases" # optional, defaults to the Lavalink release repository
-#  defaultPluginSnapshotRepository: "https://maven.lavalink.dev/snapshots" # optional, defaults to the Lavalink snapshot repository
+    - dependency: "com.github.topi314.lavasearch:lavasearch-plugin:x.y.z"
+      repository: "https://maven.lavalink.dev/releases" # this is optional for lavalink v4.0.0-beta.5 or greater
+      snapshot: false # set to true if you want to use snapshot builds (see below)
+pluginsDir: "./plugins" # optional, defaults to "./plugins"
+  defaultPluginRepository: "https://maven.lavalink.dev/releases" # optional, defaults to the Lavalink release repository
+  defaultPluginSnapshotRepository: "https://maven.lavalink.dev/snapshots" # optional, defaults to the Lavalink snapshot repository
   server:
     password: "apples"
     sources:
@@ -47,7 +47,7 @@ lavalink:
     useSeekGhosting: true # Seek ghosting is the effect where whilst a seek is in progress, the audio buffer is read from until empty, or until seek is ready.
     youtubePlaylistLoadLimit: 6 # Number of pages at 100 each
     playerUpdateInterval: 5 # How frequently to send player updates to clients, in seconds
-    youtubeSearchEnabled: true
+    youtubeSearchEnabled: false
     soundcloudSearchEnabled: true
     gc-warnings: true
     #ratelimit:
